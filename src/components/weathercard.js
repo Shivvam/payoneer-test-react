@@ -53,16 +53,16 @@ const WeatherCard = (props) => {
 	const getFormattedDate = (dateYYYYMMDD) => {
 		const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 		let dateDestructArray = dateYYYYMMDD.split("-");
-		return dateDestructArray[2]+"-"+months[parseInt(dateDestructArray[1])-1]+"-"+dateDestructArray[0];
+		return dateDestructArray[2]+"-"+months[parseInt(dateDestructArray[1])-1]+"-"+dateDestructArray[0].substr(2,2);
 	}
 	 
 
 	return(
 		<div className="mx-2 cursor-pointer" onClick={()=>{displayBarChart(props.indexval)}}>
 			<div className={props.isActive?"border rounded-l border-2 border-green-300 bg-gray-300":"border rounded-l border-2 border-gray-200 bg-gray-100"}>
-			<div className="p-3">
+			<div className="p-1">
 				<p className="text-sm text-gray-800">{getFormattedDate(props.weatherdate)}</p>
-				<p className="text-l text-indigo-800 pt-2">{displayTempAsPerUnit(avgTemperatureofDay,temperatureUnit)} &#176;{temperatureUnit}</p>
+				<p className="text-l text-indigo-600 pt-2">{displayTempAsPerUnit(avgTemperatureofDay,temperatureUnit)} &#176;{temperatureUnit}</p>
 			</div>
 			</div>
 		</div>

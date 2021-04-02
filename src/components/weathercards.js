@@ -22,7 +22,7 @@ const WeatherCards = (props) => {
 		</div>
  
 	 
-		<div className="p-2 ">
+		<div className="p-2 max-w-xs">
 			<BarChart  currentPageWeatherData={props.weatherData} />
 		</div>
 	    

@@ -79,10 +79,10 @@ const WeatherInfoScreen = (props) => {
 
 
 	return(
-		<div className="bg-white relative shadow-xl border rounded-l w-3/6 mx-auto h-auto my-20 ">
+		<div className="max-w-xs bg-white relative shadow-xl border rounded-l sm:w-full   h-auto md:mt-15">
 			{!weatherDataLoaded&&
 				loadingWeatherData?
-				<div className="p-20 m-20">
+				<div className="">
 					<p className="p-20 text-3xl">Loading...</p>
 				</div>
 				:''
@@ -110,7 +110,7 @@ const WeatherInfoScreen = (props) => {
 								</div>
 			
 			</div>
-			<div className="flex justify-center">
+			<div className="max-w-xs">
 				<WeatherCards weatherData={Object.entries(weatherData).slice(currentPageIndex*pageSize,(((currentPageIndex+1)*pageSize)))}   />
 			</div>
 			</div>

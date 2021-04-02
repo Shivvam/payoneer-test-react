@@ -85,17 +85,17 @@ const BarChart = (props) => {
 	 
 
 	return(
-			<div className="my-1 ">
+			<div className="my-1 max-w-xs">
 			{chartDataOfDay?.date&&
 			<div className="border rounded pb-2">
 
 				<p className="text-sm text-gray-600 mx-2 pb-2"> {chartDataOfDay?.date&&getFormattedDate(chartDataOfDay.date)}   </p>
-				<div className="flex justify-start">
+				<div className="grid grid-cols-8">
 				{chartDataOfDay&&currentDateWeatherData.map((cd,idx)=>{
 					if(Number(displayTempAsPerUnit(cd["main"]["temp"],temperatureUnit))>0){
 						return(
-							<div className="m-3 bg-gray-200 border cursor-pointer" key={idx} title={displayTempAsPerUnit(cd["main"]["temp"],temperatureUnit) + temperatureUnit} >
-								<div className="w-8  bg-indigo-600"  style={{height: "100px" }}>
+							<div className="m-1 pb-2 bg-gray-200 border cursor-pointer" key={idx} title={displayTempAsPerUnit(cd["main"]["temp"],temperatureUnit) + temperatureUnit} >
+								<div className="bg-indigo-600"  style={{height: "100px" }}>
 									<div style={{height: Number(100-displayTempAsPerUnit(cd["main"]["temp"],temperatureUnit)*scalerFactor)+"px", color:"red" }} className="border bg-gray-200">
 
 									</div>
@@ -106,14 +106,14 @@ const BarChart = (props) => {
 								<div style={{height: "100px", color:"red" }} className="border bg-gray-200">
 
 								</div>
-								<span className="text-xs absolute  text-gray-500">{displayTempAsPerUnit(cd["main"]["temp"],temperatureUnit)} &#176;{temperatureUnit}</span>
+								<span className="text-xs absolute text-gray-500 mt-1">{displayTempAsPerUnit(cd["main"]["temp"],temperatureUnit)}&#176;{temperatureUnit}</span>
 							 
 							</div>
 						)
 					}else{
 						return(
-							<div className="m-3 bg-gray-200 border cursor-pointer" key={idx} title={displayTempAsPerUnit(cd["main"]["temp"],temperatureUnit) + temperatureUnit} >
-								<div className="w-8  bg-gray-200"  style={{height: "200px" }}>
+							<div className="m-1 pb-2  bg-gray-200 border cursor-pointer" key={idx} title={displayTempAsPerUnit(cd["main"]["temp"],temperatureUnit) + temperatureUnit} >
+								<div className="bg-gray-200"  style={{height: "200px" }}>
 									 <div style={{height: "100px", color:"red" }} className="border bg-gray-200">
 
 									 </div>
@@ -122,7 +122,7 @@ const BarChart = (props) => {
 
 									 </div>
 								</div>
-								<span className="text-xs absolute   text-gray-500">{displayTempAsPerUnit(cd["main"]["temp"],temperatureUnit)} &#176;{temperatureUnit}</span>	 
+								<span className="text-xs absolute  text-gray-500 mt-1">{displayTempAsPerUnit(cd["main"]["temp"],temperatureUnit)} &#176;{temperatureUnit}</span>	 
 							</div>
 						)
 					}
