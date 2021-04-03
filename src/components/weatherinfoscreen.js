@@ -15,7 +15,7 @@ const WeatherInfoScreen = (props) => {
 	const {pageSize} = props;
 	const dispatch = useDispatch();
 
-	const API_KEY = "0d0f785809e6696c0f05c0f881db193f"; // Ideally the API_KEY should be kept in .env file 
+	const API_KEY = "75f972b80e26f14fe6c920aa6a85ad57"; // Ideally the API_KEY should be kept in .env file 
 
 
 	useEffect(()=>{

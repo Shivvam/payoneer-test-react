@@ -59,7 +59,7 @@ const WeatherCard = (props) => {
 			<div className={props.isActive?"border rounded-l border-2 border-green-300 bg-gray-300":"border rounded-l border-2 border-gray-200 bg-gray-100"}>
 			<div className="p-1">
 				<p className="text-sm text-gray-800">{getFormattedDate(props.weatherdate)}</p>
-				<p className="text-l text-indigo-600 pt-2">{displayTempAsPerUnit(avgTemperatureofDay,temperatureUnit)} &#176;{temperatureUnit}</p>
+				<p className="text-l text-center text-indigo-600 pt-2">{displayTempAsPerUnit(avgTemperatureofDay,temperatureUnit)} &#176;{temperatureUnit}</p>
 			</div>
 			</div>
 		</div>
