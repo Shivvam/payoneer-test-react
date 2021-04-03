@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import WeatherCard from './weathercard';
 import BarChart from './barchart';
 import {useSelector} from 'react-redux';
@@ -7,6 +7,19 @@ import {useSelector} from 'react-redux';
 const WeatherCards = (props) => {
 	
   const selectedCard =  useSelector(state => state.chartDataOfDay);
+	 
+	 useEffect(()=>{
+		let isCancelled = false;
+		if(!isCancelled){
+				 
+			
+		}
+		return () => {
+			isCancelled = true;
+		}
+
+	},[props.weatherData]);
+
 
 	return(
 		<div className="border rounded   mx-auto  my-2">

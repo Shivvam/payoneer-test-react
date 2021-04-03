@@ -7,12 +7,13 @@ const WeatherCard = (props) => {
 	 const [avgTemperatureofDay,setavgTemperatureofDay] = useState(0);
 	 const temperatureUnit = useSelector(state => state.temperatureUnit);
 	 const dispatch = useDispatch();
+	 const {weatherinfo} =  props;
 
 	useEffect(()=>{
 		let isCancelled = false;
 		if(!isCancelled){
 				if(!avgTemperatureofDay){
-					 calculateAverageTemp();
+					 setavgTemperatureofDay(calculateAverageTemp(props.weatherinfo));
 				}
 			
 		}
@@ -23,12 +24,8 @@ const WeatherCard = (props) => {
 	},[temperatureUnit]);
 
 
-	const calculateAverageTemp = () => {
-		let totalT = props.weatherinfo.reduce((acc,cv)=>{
-			return acc+ cv.main.temp ;
-		},0);
-		let avgTemp = totalT/(props.weatherinfo.length);
-		setavgTemperatureofDay(avgTemp.toFixed(2));
+	const calculateAverageTemp = (weatherArray) => {	 
+		return  weatherArray.reduce((avg,currentV) => { return Number(currentV["main"]["temp"])+avg },0)/(weatherArray.length);
 	}
 
 	const displayTempAsPerUnit = (tempVal,unitVal) => {
